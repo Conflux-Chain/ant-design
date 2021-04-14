@@ -19,7 +19,7 @@ const components = uniq(
 
 describe('site test', () => {
   let server;
-  const port = 3000;
+  const port = 3009;
   const render = async path => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async res => {
       const html = await res.text();
@@ -50,7 +50,7 @@ describe('site test', () => {
     });
     server.listen(port);
     // eslint-disable-next-line no-console
-    console.log('site static server run: http://localhost:3000');
+    console.log('site static server run: http://localhost:3009');
   });
 
   afterAll(() => {

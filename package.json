@@ -15,13 +15,13 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://ant.design",
+  "homepage": "https://jnoodle.github.io/ant-design/",
   "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
+    "url": "https://github.com/jnoodle/ant-design/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "https://github.com/jnoodle/ant-design"
   },
   "license": "MIT",
   "contributors": [
@@ -94,6 +94,7 @@
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
+    "site:test:update": "jest --config .jest.site.js --cache=false -u",
     "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16",
