@@ -1,5 +1,54 @@
 /* stylelint-disable at-rule-no-unknown */
 
+// reset all
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
 // Reboot
 //
 // Normalization of HTML elements, manually forked from Normalize.css to remove
@@ -33,11 +82,14 @@ input::-ms-reveal {
 *::before,
 *::after {
   box-sizing: border-box; // 1
+  text-rendering: geometricPrecision;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @{html-selector} {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
+  letter-spacing: 0.0071rem;
   -webkit-text-size-adjust: 100%; // 4
   -ms-text-size-adjust: 100%; // 4
   -ms-overflow-style: scrollbar; // 5
@@ -56,13 +108,18 @@ input::-ms-reveal {
 
 body {
   margin: 0; // 1
+  padding: 0;
   color: @text-color;
+  font-weight: 400;
   font-size: @font-size-base;
   font-family: @font-family;
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   background-color: @body-background; // 2
   font-feature-settings: @font-feature-settings-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -74,6 +131,8 @@ body {
   outline: none !important;
 }
 
+// TODO css reset adjustment
+
 // Content grouping
 //
 // 1. Add the correct box sizing in Firefox.
@@ -83,6 +142,7 @@ hr {
   box-sizing: content-box; // 1
   height: 0; // 1
   overflow: visible; // 2
+  border-color: #eaeaea;
 }
 
 //
@@ -100,9 +160,46 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.5em;
-  color: @heading-color;
+  margin-bottom: 0.625rem;
+  //color: @heading-color;
+  color: inherit;
   font-weight: 500;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3.7144rem;
+  line-height: 4.5714rem;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 3.1429rem;
+  line-height: 3.8571rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 2.2857rem;
+  line-height: 2.8571rem;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 1.8571rem;
+  line-height: 2.2857rem;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 1.4286rem;
+  line-height: 1.8571rem;
+}
+
+h6 {
+  font-weight: 600;
+  font-size: 1.2857rem;
+  line-height: 1.7143rem;
 }
 
 // Reset margins on paragraphs
@@ -110,8 +207,14 @@ h6 {
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `em` units instead of `em`.
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+p,
+label {
+  line-height: 1.625em;
 }
 
 // Abbreviations
@@ -148,6 +251,12 @@ ul,
 dl {
   margin-top: 0;
   margin-bottom: 1em;
+  padding: 0;
+  list-style-type: none;
+}
+
+ol {
+  list-style-type: decimal;
 }
 
 ol ol,
@@ -166,8 +275,25 @@ dd {
   margin-left: 0; // Undo browser default
 }
 
+li {
+  margin-bottom: 0;
+}
+
 blockquote {
-  margin: 0 0 1em;
+  margin: 1.5rem 0;
+  padding: 0.76rem 1.1429rem;
+  color: #666;
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+blockquote :global(*:first-child) {
+  margin-top: 0;
+}
+
+blockquote :global(*:last-child) {
+  margin-bottom: 0;
 }
 
 dfn {
@@ -181,6 +307,7 @@ strong {
 
 small {
   font-size: 80%; // Add the correct font size in all browsers
+  line-height: 1.5;
 }
 
 //
@@ -215,6 +342,9 @@ a {
   cursor: pointer;
   transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-box-align: center;
 
   &:hover {
     color: @link-hover-color;
@@ -253,6 +383,12 @@ kbd,
 samp {
   font-size: 1em; // Correct the odd `em` font sizing in all browsers.
   font-family: @code-family;
+  white-space: pre-wrap;
+}
+
+code:before,
+code:after {
+  content: '`';
 }
 
 pre {
@@ -262,6 +398,11 @@ pre {
   margin-bottom: 1em;
   // Don't allow content to break outside
   overflow: auto;
+}
+
+pre code:before,
+pre code:after {
+  display: none;
 }
 
 //
@@ -277,6 +418,7 @@ figure {
 //
 
 img {
+  max-width: 100%;
   vertical-align: middle;
   border-style: none; // remove the border on images inside links in IE 10-.
 }
@@ -305,6 +447,20 @@ select,
 summary,
 textarea {
   touch-action: manipulation;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
 }
 
 //
@@ -471,8 +627,39 @@ output {
   display: inline-block;
 }
 
+details {
+  background-color: #fafafa;
+  border: none;
+}
+
+details:focus,
+details:hover,
+details:active {
+  outline: none;
+}
+
 summary {
   display: list-item; // Add the correct display in all browsers
+  list-style: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+summary::-webkit-details-marker,
+summary::before {
+  display: none;
+}
+
+summary::-moz-list-bullet {
+  font-size: 0;
+}
+
+summary:focus,
+summary:hover,
+summary:active {
+  list-style: none;
+  outline: none;
 }
 
 template {
@@ -491,7 +678,7 @@ mark {
 }
 
 ::selection {
-  color: @text-color-inverse;
+  color: @black;
   background: @text-selection-bg;
 }
 
