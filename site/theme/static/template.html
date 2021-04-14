@@ -12,14 +12,22 @@
       type="image/x-icon"
     />
     {% for cssFile in manifest["css"] %}
-    <link rel="stylesheet" type="text/css" href="{{ root }}{{ cssFile }}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jnoodle.github.io/ant-design/{{ cssFile }}"
+    />
     {% endfor %}
     <style id="nprogress-style">
       #nprogress {
         display: none;
       }
     </style>
-    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
+    <link
+      rel="stylesheet/less"
+      type="text/css"
+      href="https://jnoodle.github.io/ant-design/color.less"
+    />
     <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
       (function () {
@@ -81,40 +89,40 @@
   <body>
     <div id="react-content">{{ content | safe }}</div>
     {% for jsFile in manifest["js"] %}
-    <script src="{{ root }}{{ jsFile }}"></script>
+    <script src="https://jnoodle.github.io/ant-design/{{ jsFile }}"></script>
     {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
-    <script>
-      if (!location.port) {
-        // Enable Google Analytics
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-72788897-1');
-      }
-    </script>
-    <!-- Hotjar Tracking Code for ant.design -->
-    <script>
-      (function (h, o, t, j, a, r) {
-        if (location.hostname === 'localhost') {
-          return;
-        }
+    <!--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>-->
+    <!--    <script>-->
+    <!--      if (!location.port) {-->
+    <!--        // Enable Google Analytics-->
+    <!--        window.dataLayer = window.dataLayer || [];-->
+    <!--        function gtag() {-->
+    <!--          dataLayer.push(arguments);-->
+    <!--        }-->
+    <!--        gtag('js', new Date());-->
+    <!--        gtag('config', 'UA-72788897-1');-->
+    <!--      }-->
+    <!--    </script>-->
+    <!--    &lt;!&ndash; Hotjar Tracking Code for ant.design &ndash;&gt;-->
+    <!--    <script>-->
+    <!--      (function (h, o, t, j, a, r) {-->
+    <!--        if (location.hostname === 'localhost') {-->
+    <!--          return;-->
+    <!--        }-->
 
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 473408, hjsv: 5 };
-        a = o.getElementsByTagName('head')[0];
-        r = o.createElement('script');
-        r.async = 1;
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
+    <!--        h.hj =-->
+    <!--          h.hj ||-->
+    <!--          function () {-->
+    <!--            (h.hj.q = h.hj.q || []).push(arguments);-->
+    <!--          };-->
+    <!--        h._hjSettings = { hjid: 473408, hjsv: 5 };-->
+    <!--        a = o.getElementsByTagName('head')[0];-->
+    <!--        r = o.createElement('script');-->
+    <!--        r.async = 1;-->
+    <!--        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;-->
+    <!--        a.appendChild(r);-->
+    <!--      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');-->
+    <!--    </script>-->
   </body>
 </html>
