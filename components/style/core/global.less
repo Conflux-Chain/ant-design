@@ -166,42 +166,6 @@ h6 {
   font-weight: 500;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 3.7144rem;
-  line-height: 4.5714rem;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 3.1429rem;
-  line-height: 3.8571rem;
-}
-
-h3 {
-  font-weight: 600;
-  font-size: 2.2857rem;
-  line-height: 2.8571rem;
-}
-
-h4 {
-  font-weight: 600;
-  font-size: 1.8571rem;
-  line-height: 2.2857rem;
-}
-
-h5 {
-  font-weight: 600;
-  font-size: 1.4286rem;
-  line-height: 1.8571rem;
-}
-
-h6 {
-  font-weight: 600;
-  font-size: 1.2857rem;
-  line-height: 1.7143rem;
-}
-
 // Reset margins on paragraphs
 //
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
@@ -386,6 +350,10 @@ samp {
   white-space: pre-wrap;
 }
 
+code {
+  color: #f81ce5;
+}
+
 code:before,
 code:after {
   content: '`';
@@ -398,6 +366,14 @@ pre {
   margin-bottom: 1em;
   // Don't allow content to break outside
   overflow: auto;
+  white-space: pre;
+}
+
+pre code {
+  color: #000;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  white-space: pre;
 }
 
 pre code:before,
