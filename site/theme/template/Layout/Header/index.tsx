@@ -41,7 +41,10 @@ function initDocSearch(locale: string) {
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits: { url: string }[]) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host);
+        hit.url = hit.url.replace(
+          'ant.design',
+          window.location.host.replace('jnoodle.github.io', 'jnoodle.github.io/ant-design'),
+        );
         hit.url = hit.url.replace('https:', window.location.protocol);
       });
       return hits;

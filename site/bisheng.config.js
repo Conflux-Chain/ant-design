@@ -30,6 +30,7 @@ function alertBabelConfig(rules) {
 module.exports = {
   port: 8001,
   hash: true,
+  root: '/ant-design/',
   source: {
     components: './components',
     docs: './docs',

@@ -12,22 +12,14 @@
       type="image/x-icon"
     />
     {% for cssFile in manifest["css"] %}
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://jnoodle.github.io/ant-design/{{ cssFile }}"
-    />
+    <link rel="stylesheet" type="text/css" href="/ant-design/{{ cssFile }}" />
     {% endfor %}
     <style id="nprogress-style">
       #nprogress {
         display: none;
       }
     </style>
-    <link
-      rel="stylesheet/less"
-      type="text/css"
-      href="https://jnoodle.github.io/ant-design/color.less"
-    />
+    <link rel="stylesheet/less" type="text/css" href="/ant-design/color.less" />
     <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
       (function () {
@@ -89,7 +81,7 @@
   <body>
     <div id="react-content">{{ content | safe }}</div>
     {% for jsFile in manifest["js"] %}
-    <script src="https://jnoodle.github.io/ant-design/{{ jsFile }}"></script>
+    <script src="/ant-design/{{ jsFile }}"></script>
     {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <!--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>-->
