@@ -19,7 +19,9 @@
       }
 
       .@{tab-prefix-cls}-ink-bar {
-        height: 2px;
+        height: 6px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
 
         &-animated {
           transition: width @animation-duration-slow, left @animation-duration-slow,
@@ -80,6 +82,7 @@
 
       .@{tab-prefix-cls}-ink-bar {
         top: 0;
+        border-radius: 0 0 8px 8px;
       }
     }
 
@@ -137,7 +140,9 @@
 
       // >>>>>>>>>>> Ink Bar
       .@{tab-prefix-cls}-ink-bar {
-        width: 2px;
+        width: 6px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
 
         &-animated {
           transition: height @animation-duration-slow, top @animation-duration-slow;
@@ -178,6 +183,7 @@
 
       .@{tab-prefix-cls}-ink-bar {
         left: 0;
+        border-radius: 0 8px 8px 0;
       }
     }
 
