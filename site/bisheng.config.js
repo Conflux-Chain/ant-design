@@ -1,8 +1,7 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
 
@@ -84,12 +83,11 @@ module.exports = {
       };
     } else if (process.env.ESBUILD) {
       // use esbuild
-      config.plugins.push(new ESBuildPlugin());
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',
+          css: true,
         }),
-        new CssMinimizerPlugin(),
       ];
     }
 

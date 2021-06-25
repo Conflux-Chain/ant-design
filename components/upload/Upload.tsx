@@ -34,6 +34,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onPreview,
     onDownload,
     onChange,
+    onDrop,
     previewFile,
     disabled,
     locale: propLocale,
@@ -170,9 +171,21 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        const clone = (new File([originFileObj], originFileObj.name, {
-          type: originFileObj.type,
-        }) as any) as UploadFile;
+        let clone;
+
+        try {
+          clone = (new File([originFileObj], originFileObj.name, {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+        } catch (e) {
+          clone = (new Blob([originFileObj], {
+            type: originFileObj.type,
+          }) as any) as UploadFile;
+          clone.name = originFileObj.name;
+          clone.lastModifiedDate = new Date();
+          clone.lastModified = new Date().getTime();
+        }
+
         clone.uid = fileObj.uid;
         triggerFileObj = clone;
       } else {
@@ -266,8 +279,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   };
 
   const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.stopPropagation();
     setDragState(e.type);
+
+    if (e.type === 'drop') {
+      onDrop?.(e);
+    }
   };
 
   // Test needs
@@ -403,7 +419,7 @@ interface CompoundedComponent
     React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
-  LIST_IGNORE: {};
+  LIST_IGNORE: string;
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;

@@ -65,6 +65,10 @@ export default (
   if (!ellipsisContainer) {
     ellipsisContainer = document.createElement('div');
     ellipsisContainer.setAttribute('aria-hidden', 'true');
+  }
+
+  // HMR will remove this from body which should patch back
+  if (!ellipsisContainer.parentNode) {
     document.body.appendChild(ellipsisContainer);
   }
 
@@ -73,11 +77,10 @@ export default (
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
   const lineHeight = pxToNumber(originStyle.lineHeight);
-  const maxHeight = Math.round(
-    lineHeight * (rows + 1) +
-      pxToNumber(originStyle.paddingTop) +
-      pxToNumber(originStyle.paddingBottom),
-  );
+  const maxHeight =
+    Math.floor(lineHeight) * (rows + 1) +
+    pxToNumber(originStyle.paddingTop) +
+    pxToNumber(originStyle.paddingBottom);
 
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
