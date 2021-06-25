@@ -12,14 +12,14 @@
       type="image/x-icon"
     />
     {% for cssFile in manifest["css"] %}
-    <link rel="stylesheet" type="text/css" href="/ant-design/{{ cssFile }}" />
+    <link rel="stylesheet" type="text/css" href="/{{ cssFile }}" />
     {% endfor %}
     <style id="nprogress-style">
       #nprogress {
         display: none;
       }
     </style>
-    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
+    <link rel="stylesheet/less" type="text/css" href="/color.less" />
     <script src="https://b.alicdn.com/s/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
       (function () {
@@ -81,7 +81,7 @@
   <body>
     <div id="react-content">{{ content | safe }}</div>
     {% for jsFile in manifest["js"] %}
-    <script src="/ant-design/{{ jsFile }}"></script>
+    <script src="/{{ jsFile }}"></script>
     {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <!--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>-->
