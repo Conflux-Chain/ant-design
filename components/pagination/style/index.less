@@ -4,6 +4,26 @@
 
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
+//@pagination-item-bg: @component-background;
+//@pagination-item-size: @height-base;
+//@pagination-item-size-sm: 24px;
+//@pagination-font-family: @font-family;
+//@pagination-font-weight-active: 500;
+@pagination-text-color: rgb(116, 121, 140);
+@pagination-item-bg-active: @primary-color;
+@pagination-item-link-bg: rgba(0, 84, 254, 0.04);
+@pagination-item-link-bg-hover: rgba(0, 84, 254, 0.1);
+//@pagination-item-disabled-color-active: @white;
+//@pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
+//@pagination-item-input-bg: @component-background;
+//@pagination-mini-options-size-changer-top: 0px;
+
+.override-styles() {
+  color: #74798c;
+  background-color: rgba(0, 84, 254, 0.04);
+  border-color: rgba(0, 84, 254, 0.04);
+}
+
 .@{pagination-prefix-cls} {
   .reset-component();
 
@@ -42,16 +62,20 @@
     vertical-align: middle;
     list-style: none;
     background-color: @pagination-item-bg;
-    border: @border-width-base @border-style-base @border-color-base;
+    //border: @border-width-base @border-style-base @border-color-base;
+    border: none;
     border-radius: @border-radius-base;
     outline: 0;
     cursor: pointer;
     user-select: none;
 
+    .override-styles();
+
     a {
       display: block;
       padding: 0 6px;
-      color: @text-color;
+      color: @pagination-text-color;
+      font-weight: 500;
       transition: none;
 
       &:hover {
@@ -61,6 +85,7 @@
 
     &:focus-visible,
     &:hover {
+      background-color: @pagination-item-link-bg-hover;
       border-color: @primary-color;
       transition: all 0.3s;
       a {
@@ -74,7 +99,7 @@
       border-color: @primary-color;
 
       a {
-        color: @primary-color;
+        color: @white;
       }
 
       &:focus-visible,
@@ -84,7 +109,7 @@
 
       &:focus-visible a,
       &:hover a {
-        color: @primary-5;
+        color: @white;
       }
     }
   }
@@ -151,7 +176,8 @@
     display: inline-block;
     min-width: @pagination-item-size;
     height: @pagination-item-size;
-    color: @text-color;
+    color: @pagination-text-color;
+    font-weight: 500;
     font-family: @pagination-font-family;
     line-height: @pagination-item-size;
     text-align: center;
@@ -168,7 +194,8 @@
     outline: 0;
 
     button {
-      color: @text-color;
+      color: @pagination-text-color;
+      font-weight: 500;
       cursor: pointer;
       user-select: none;
     }
@@ -178,22 +205,28 @@
     }
 
     .@{pagination-prefix-cls}-item-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
       padding: 0;
       font-size: 12px;
       text-align: center;
       background-color: @pagination-item-link-bg;
-      border: @border-width-base @border-style-base @border-color-base;
+      //border: @border-width-base @border-style-base @border-color-base;
+      border: none;
       border-radius: @border-radius-base;
       outline: none;
       transition: all 0.3s;
+
+      .override-styles();
     }
 
     &:focus-visible .@{pagination-prefix-cls}-item-link,
     &:hover .@{pagination-prefix-cls}-item-link {
       color: @primary-color;
+      background-color: @pagination-item-link-bg-hover;
       border-color: @primary-color;
     }
   }
@@ -231,6 +264,11 @@
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
+
+      .@{ant-prefix}-select-selector {
+        border: none;
+        .override-styles();
+      }
     }
 
     &-quick-jumper {
@@ -246,6 +284,9 @@
         width: 50px;
         height: @input-height-base;
         margin: 0 8px;
+
+        border: none;
+        .override-styles();
       }
     }
   }
