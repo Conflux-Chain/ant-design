@@ -1,5 +1,5 @@
 {
-  "name": "@jnoodle/antd",
+  "name": "@cfxjs/antd",
   "version": "1.0.4",
   "sourceVersion": "4.16.5",
   "description": "An enterprise-class UI design language and React components implementation",
@@ -15,13 +15,13 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://jnoodle.github.io/ant-design/",
+  "homepage": "https://github.com/Conflux-Chain/ant-design/",
   "bugs": {
-    "url": "https://github.com/jnoodle/ant-design/issues"
+    "url": "https://github.com/Conflux-Chain/ant-design/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jnoodle/ant-design"
+    "url": "https://github.com/Conflux-Chain/ant-design"
   },
   "license": "MIT",
   "contributors": [
